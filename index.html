@@ -90,6 +90,22 @@
     .modal-button:hover { transform:translateY(-2px); background:rgba(255,255,255,.13); }
     .modal-button.primary { border-color:rgba(255,131,197,.45); background:linear-gradient(135deg,#a72bc8,#641985); }
     .modal-close { position:absolute; top:15px; right:17px; width:34px; height:34px; border:0; border-radius:50%; color:#ddc4d9; background:rgba(255,255,255,.06); font-size:1.15rem; cursor:pointer; }
+    .secret-section { overflow:hidden; background:radial-gradient(circle at 50% 45%,rgba(155,45,209,.2),transparent 38%),linear-gradient(180deg,rgba(8,0,13,.88),rgba(18,2,27,.94)); }
+    .secret-box { width:min(570px,100%); margin:38px auto 0; padding:38px clamp(22px,5vw,46px); border:1px solid rgba(255,131,197,.28); border-radius:26px; background:linear-gradient(145deg,rgba(91,24,118,.36),rgba(25,5,35,.7)); box-shadow:0 24px 65px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.07); }
+    .lock-icon { width:82px; height:82px; display:grid; place-items:center; margin:0 auto 20px; border:1px solid rgba(255,131,197,.42); border-radius:50%; background:linear-gradient(145deg,#9f32c1,#54146f); box-shadow:0 14px 36px rgba(147,39,186,.35); font-size:2.25rem; transition:transform .45s ease; }
+    .secret-box.is-unlocked .lock-icon { transform:rotate(-12deg) scale(1.08); }
+    .secret-form { display:flex; justify-content:center; gap:10px; margin-top:24px; }
+    .secret-input { width:min(210px,55vw); padding:13px 16px; border:1px solid rgba(255,255,255,.18); border-radius:999px; outline:none; color:#fff; background:rgba(5,0,9,.38); font:600 1rem Manrope,sans-serif; text-align:center; letter-spacing:.3em; transition:.2s ease; }
+    .secret-input:focus { border-color:#ff83c5; box-shadow:0 0 0 4px rgba(255,131,197,.1); }
+    .unlock-button { padding:13px 19px; border:1px solid rgba(255,131,197,.45); border-radius:999px; color:#fff; background:linear-gradient(135deg,#a52bc8,#60177f); font:600 .8rem Manrope,sans-serif; cursor:pointer; }
+    .secret-hint { margin-top:15px!important; color:#bfa4bd!important; font:400 .75rem Manrope,sans-serif!important; }
+    .secret-error { min-height:24px; margin-top:11px!important; color:#ff9bc9!important; font:500 .78rem Manrope,sans-serif!important; }
+    .love-letter { max-height:0; overflow:hidden; opacity:0; transform:translateY(15px); transition:max-height .8s ease,opacity .6s ease,transform .6s ease,margin .6s ease; }
+    .secret-box.is-unlocked .love-letter { max-height:650px; margin-top:28px; opacity:1; transform:none; }
+    .love-letter-inner { padding:27px 24px; border:1px solid rgba(255,131,197,.2); border-radius:18px; background:rgba(255,255,255,.055); }
+    .love-letter h3 { margin-bottom:15px; color:#ffd5ed; font-family:"Cormorant Garamond",serif; font-size:2rem; font-weight:500; }
+    .love-letter p { color:#e5cde1!important; font-size:1.25rem!important; }
+    @media (max-width:520px) { .secret-form{flex-direction:column;align-items:center}.secret-input,.unlock-button{width:100%} }
     .memory-grid { margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .memory { aspect-ratio:4/5; display:flex; align-items:flex-end; padding:22px; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:4px; background:linear-gradient(160deg,rgba(137,25,154,.23),rgba(20,0,30,.7)); box-shadow:0 18px 45px rgba(0,0,0,.18); }
     .memory span { color:#ead4e6; font-family:"Cormorant Garamond",serif; font-size:1.25rem; }
@@ -196,7 +212,28 @@
         <p class="wheel-result" id="wheelResult" aria-live="polite">¿Qué nos tocará?</p>
       </div>
     </section>
-    <section class="chapter" id="recuerdos"><div class="chapter-inner"><p class="eyebrow">momentos que guardo</p><h2>Nuestros recuerdos.</h2><p>Acá podés reemplazar estas tarjetas por fotos, fechas o pequeñas historias de ustedes.</p><div class="memory-grid"><article class="memory"><span>El día que empezó todo.</span></article><article class="memory"><span>Ese momento que siempre recordamos.</span></article><article class="memory"><span>Todo lo que todavía nos falta vivir.</span></article></div></div></section>
+    <section class="chapter secret-section" id="recuerdos">
+      <div class="chapter-inner">
+        <p class="eyebrow">solo para vos</p>
+        <h2>Descifrá el código secreto.</h2>
+        <p>Hay un mensajito lleno de amor esperando detrás de este candado.</p>
+        <div class="secret-box" id="secretBox">
+          <div class="lock-icon" id="lockIcon" aria-hidden="true">🔒</div>
+          <form class="secret-form" id="secretForm">
+            <input class="secret-input" id="secretCode" type="password" inputmode="numeric" maxlength="4" placeholder="••••" aria-label="Código secreto" autocomplete="off" />
+            <button class="unlock-button" type="submit">Desbloquear ♡</button>
+          </form>
+          <p class="secret-hint">Pista: el día en que empezó nuestro tiempito juntos.</p>
+          <p class="secret-error" id="secretError" aria-live="polite"></p>
+          <div class="love-letter" id="loveLetter">
+            <div class="love-letter-inner">
+              <h3>Para vos, mi Cintia ♡</h3>
+              <p>No importa que todavía llevemos poquito tiempo. Hay personas que tardan años en sentirse especiales y vos lograste hacerlo desde el principio. Gracias por cada momento, cada sonrisa y por hacer tan lindo esto que recién empieza. Quiero seguir descubriéndote, cuidándote y construyendo recuerdos con vos. Te amo muchísimo. 💜</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="chapter" id="razones"><div class="chapter-inner"><p class="eyebrow">y al final entendí</p><h2>Vos eras el motivo.</h2><p>No necesitaba una fecha especial para recordarte lo importante que sos para mí. Te amo, Isa.</p></div></section>
   </main>
   <div class="result-modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="resultTitle" aria-hidden="true">
@@ -303,6 +340,30 @@
     acceptResult.addEventListener('click', closeResultModal);
     resultModal.addEventListener('click', event => { if (event.target === resultModal) closeResultModal(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeResultModal(); });
+
+    const secretForm = document.getElementById('secretForm');
+    const secretCode = document.getElementById('secretCode');
+    const secretBox = document.getElementById('secretBox');
+    const secretError = document.getElementById('secretError');
+    const lockIcon = document.getElementById('lockIcon');
+
+    secretForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (secretCode.value.trim() === '0208') {
+        secretBox.classList.add('is-unlocked');
+        lockIcon.textContent = '🔓';
+        secretForm.hidden = true;
+        secretError.textContent = '';
+      } else {
+        secretError.textContent = 'Ese no es el código... probá otra vez 💭';
+        secretCode.value = '';
+        secretCode.focus();
+        secretBox.animate([
+          { transform:'translateX(0)' },{ transform:'translateX(-8px)' },
+          { transform:'translateX(8px)' },{ transform:'translateX(0)' }
+        ],{ duration:320 });
+      }
+    });
   </script>
 </body>
 </html>
