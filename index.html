@@ -43,6 +43,7 @@
     .heart-mark { display:inline-block; color:var(--rose); font-size:.75em; animation:beat 1.8s ease-in-out infinite; }
     .music { margin:38px auto 0; border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:11px 18px; display:inline-flex; align-items:center; gap:10px; color:var(--white); background:rgba(255,255,255,.06); backdrop-filter:blur(10px); font:500 .74rem Manrope,sans-serif; letter-spacing:.1em; cursor:pointer; transition:.25s ease; }
     .music:hover { background:rgba(255,120,186,.15); border-color:rgba(255,131,197,.55); transform:translateY(-2px); }
+    .spotify-caption { width:100%; margin:24px auto 0!important; text-align:center; }
     .music-icon { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,var(--pink),#b934ff); box-shadow:0 0 22px rgba(255,82,167,.32); }
     .scroll-cue { position:absolute; bottom:27px; left:50%; transform:translateX(-50%); z-index:3; color:#d6bad0; font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; }
     .scroll-cue::after { content:""; display:block; width:1px; height:34px; margin:10px auto 0; background:linear-gradient(var(--pink),transparent); animation:drop 1.8s ease-in-out infinite; }
@@ -111,6 +112,10 @@
     .memory-grid { margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .memory { aspect-ratio:4/5; display:flex; align-items:flex-end; padding:22px; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:4px; background:linear-gradient(160deg,rgba(137,25,154,.23),rgba(20,0,30,.7)); box-shadow:0 18px 45px rgba(0,0,0,.18); }
     .memory span { color:#ead4e6; font-family:"Cormorant Garamond",serif; font-size:1.25rem; }
+    .future-section { min-height:55vh; background:radial-gradient(circle at 50% 45%,rgba(200,62,255,.18),transparent 40%),linear-gradient(180deg,rgba(9,0,12,.78),rgba(9,0,12,.96)); }
+    .random-love-phrase { width:min(680px,100%)!important; min-height:2.2em; margin:26px auto 0!important; color:#ffd2ec!important; font-size:clamp(1.55rem,3vw,2.15rem)!important; font-style:italic; text-shadow:0 5px 28px rgba(255,82,167,.22); animation:arrive 1s ease both; }
+    .back-home { display:inline-flex; margin-top:32px; padding:12px 20px; border:1px solid rgba(255,131,197,.32); border-radius:999px; color:#ead3e5; background:rgba(255,255,255,.055); font-size:.76rem; letter-spacing:.08em; text-decoration:none; transition:.22s ease; }
+    .back-home:hover { color:#fff; border-color:rgba(255,131,197,.58); transform:translateY(-2px); }
     footer { padding:50px 20px 70px; text-align:center; color:#baa1b5; font-family:"Cormorant Garamond",serif; font-size:1.2rem; background:#09000c; }
     @keyframes arrive { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
     @keyframes beat { 50%{transform:scale(1.18)} }
@@ -156,7 +161,7 @@
         <p class="intro">Quiero amar sin pensar en que me haran, que vea el alma, y no los ojos ❤️</p><br> <br>
 
 <iframe src="https://open.spotify.com/embed/playlist/1ZIEUpX21NDrcJbA8lKVxK?si=5f6137bd88274234" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe><div style="position: absolute;width: 91%;bottom: 4px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.2;font-size: 0px;background: #fff;"><a href="https://spotembed.com/">Spotify player embed</a><script type="text/javascript" src="https://instaembedcode.com/in.js"></script></small></div><style>.boxes2{height:212px;width:316px;} #new img{max-width:none!important;background:none!important}</style></div>
-      <p class="intro">Musiquita que me hace acordar a vos u.u</p><br> <br> 
+      <p class="intro spotify-caption">Musiquita que me hace acordar a vos u.u</p><br><br> 
       <div class="mobile-photo-strip" aria-hidden="true"><div class="mobile-photo-track">
           <figure class="photo-frame"><img src="foto-01.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-02.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-03.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-04.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-05.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-06.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-07.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-08.jpg?v=2" alt="" /></figure>
           <figure class="photo-frame"><img src="foto-01.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-02.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-03.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-04.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-05.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-06.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-07.jpg?v=2" alt="" /></figure><figure class="photo-frame"><img src="foto-08.jpg?v=2" alt="" /></figure>
@@ -254,6 +259,14 @@
         <p>Mucho, no importa cuándo lo leas &lt;3.</p>
         <p style="margin-top:22px">Si perdiste mi número, te dejo mi WhatsApp para que me mandes un mensaje, ahre.</p>
         <a class="whatsapp-love" href="https://wa.me/5491162290521?text=Holaaa%2C%20encontr%C3%A9%20tu%20n%C3%BAmero%20en%20la%20p%C3%A1gina%20%F0%9F%92%9C" target="_blank" rel="noopener noreferrer">Hablameeee 💜</a>
+      </div>
+    </section>
+    <section class="chapter future-section" id="futuro">
+      <div class="chapter-inner">
+        <p class="eyebrow">esto recién empieza</p>
+        <h2>Una cosita más...</h2>
+        <p class="random-love-phrase" id="randomLovePhrase"></p>
+        <a class="back-home" href="#inicio">Volver al principio ♡</a>
       </div>
     </section>
   </main>
@@ -361,6 +374,19 @@
     acceptResult.addEventListener('click', closeResultModal);
     resultModal.addEventListener('click', event => { if (event.target === resultModal) closeResultModal(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeResultModal(); });
+
+    const lovePhrases = [
+      'Quiero seguir eligiéndote.',
+      'Ojalá nos queden infinitas noches juntos.',
+      'Todavía nos faltan muchísimos recuerdos.',
+      'Mi lugar favorito sigue siendo con vos.',
+      'Esto recién empieza.',
+      'Cualquier excusa es buena si es para verte.'
+    ];
+    const randomLovePhrase = document.getElementById('randomLovePhrase');
+    if (randomLovePhrase) {
+      randomLovePhrase.textContent = '“' + lovePhrases[Math.floor(Math.random() * lovePhrases.length)] + '”';
+    }
 
     const secretForm = document.getElementById('secretForm');
     const secretCode = document.getElementById('secretCode');
