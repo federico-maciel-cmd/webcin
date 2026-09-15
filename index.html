@@ -126,6 +126,93 @@
     @keyframes photosMobile { to{transform:translateX(calc(-50% - 6px))} }
     @media (max-width:1100px) { .photo-rail{display:none}.mobile-photo-strip{display:block}.hero-content{width:min(680px,100%)} }
     @media (max-width:700px) { nav{height:64px;padding:0 20px}.brand{font-size:1.1rem}.nav-links{gap:14px}.nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none}.nav-links a{font-size:.7rem}.hero{padding:95px 22px 72px}h1{font-size:clamp(4rem,22vw,6.2rem)}.intro{margin-top:26px}.memory-grid{grid-template-columns:1fr}.memory{aspect-ratio:16/10}.chapter{padding-inline:24px}.counter-grid{grid-template-columns:repeat(2,1fr);gap:12px}.time-card{min-height:108px;border-radius:16px}.since-badge{letter-spacing:.1em}.counter-details{align-items:stretch;flex-direction:column}.counter-pill{width:100%} }
+
+    /* Afinado especial para celulares */
+    @media (max-width:700px) {
+      body { padding-bottom:82px; }
+      nav {
+        top:auto; bottom:12px; left:12px; width:calc(100% - 24px); height:58px;
+        padding:7px; border:1px solid rgba(255,131,197,.2); border-radius:20px;
+        background:rgba(19,3,27,.82); box-shadow:0 12px 38px rgba(0,0,0,.42);
+        backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      }
+      .brand { display:none; }
+      .nav-links { width:100%; height:100%; justify-content:space-around; align-items:center; gap:4px; }
+      .nav-links li { flex:1; }
+      .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display:none; }
+      .nav-links a {
+        min-height:42px; display:flex; align-items:center; justify-content:center;
+        padding:5px 7px; border-radius:14px; font-size:.62rem; letter-spacing:.035em;
+        text-align:center; white-space:nowrap;
+      }
+      .nav-links a:active { background:rgba(255,131,197,.13); }
+
+      .hero { min-height:100svh; padding:58px 18px 112px; }
+      .hero-content { width:100%; }
+      .eyebrow { font-size:.62rem; letter-spacing:.23em; line-height:1.6; }
+      h1 { font-size:clamp(4rem,21vw,5.8rem); line-height:.86; }
+      .intro { width:100%; margin-top:24px; font-size:1.18rem; line-height:1.5; }
+      .hero iframe {
+        display:block; width:100%!important; max-width:100%!important; height:352px!important;
+        margin:0 auto; border-radius:16px!important;
+      }
+      .spotify-caption { margin-top:18px!important; }
+      .mobile-photo-strip { width:calc(100% + 36px); margin:28px -18px 0; }
+      .mobile-photo-track .photo-frame { width:112px; border-radius:13px; }
+      .scroll-cue { bottom:82px; }
+
+      .chapter { min-height:auto; padding:78px 18px 100px; }
+      .chapter-inner { width:100%; }
+      .chapter h2 { font-size:clamp(2.75rem,14vw,4.15rem); line-height:.98; }
+      .chapter p { font-size:1.14rem; line-height:1.58; }
+      .since-badge {
+        width:fit-content!important; padding:9px 12px; white-space:normal;
+        justify-content:center; font-size:.59rem!important; line-height:1.45!important;
+      }
+      .counter-grid { margin-top:30px; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .time-card { min-width:0; min-height:101px; padding:14px 7px; border-radius:16px; }
+      .time-card strong { font-size:2.15rem; }
+      .time-card span { font-size:.56rem; letter-spacing:.14em; }
+      .counter-details { margin-top:17px; gap:9px; }
+      .counter-pill { padding:10px 12px; font-size:.7rem; line-height:1.4; }
+
+      .wheel-wrap { width:min(340px,92vw); margin:34px auto 24px; }
+      .wheel { border-width:9px; }
+      .wheel-pointer { top:-9px; border-left-width:14px; border-right-width:14px; border-top-width:31px; }
+      .wheel::after { width:55px; height:55px; border-width:4px; font-size:1.45rem; }
+      .wheel-option { padding-top:35px; }
+      .wheel-option span { width:90px; font-size:.57rem; line-height:1.15; }
+      .spin-button { width:min(280px,100%); min-height:50px; }
+      .wheel-result { font-size:1.15rem!important; }
+
+      .secret-box { margin-top:28px; padding:30px 17px; border-radius:21px; }
+      .lock-icon { width:70px; height:70px; font-size:1.9rem; }
+      .secret-input, .unlock-button { min-height:49px; font-size:16px; }
+      .love-letter-inner { padding:23px 17px; }
+      .love-letter h3 { font-size:1.8rem; }
+      .love-letter p { font-size:1.12rem!important; line-height:1.62!important; }
+      .secret-box.is-unlocked .love-letter { max-height:1100px; }
+
+      .whatsapp-love { width:min(290px,100%); min-height:50px; }
+      .future-section { min-height:55svh; }
+      .random-love-phrase { font-size:1.55rem!important; line-height:1.4!important; }
+      .back-home { min-height:46px; align-items:center; justify-content:center; }
+
+      .result-modal { padding:14px; align-items:center; }
+      .result-card { max-height:calc(100svh - 28px); overflow:auto; padding:38px 20px 25px; border-radius:22px; }
+      .modal-actions { flex-direction:column; }
+      .modal-button { width:100%; min-height:47px; }
+      footer { padding:42px 18px 28px; }
+    }
+
+    @media (max-width:370px) {
+      .nav-links a { font-size:.56rem; padding-inline:3px; }
+      h1 { font-size:3.8rem; }
+      .wheel-wrap { width:300px; max-width:92vw; }
+      .wheel-option span { width:78px; font-size:.51rem; }
+      .time-card strong { font-size:1.9rem; }
+    }
+
     @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.hero-content,.heart-mark,.scroll-cue::after,.floating-heart,.photo-track,.mobile-photo-track{animation:none}.floating-heart{display:none} }
   </style>
 </head>
