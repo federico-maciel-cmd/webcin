@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#130016" />
+  <meta name="description" content="te amu" />
+  <title>Porque sí, Mi Cintia ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23130016'/%3E%3Cpath d='M32 50S12 39 12 24c0-11 14-15 20-5 6-10 20-6 20 5 0 15-20 26-20 26Z' fill='%23ff78ba'/%3E%3C/svg%3E" />
+  <style>
+    :root { --pink:#ff83c5; --rose:#ff4d9d; --white:#fff7fc; --muted:#dec7dc; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { min-width:320px; color:var(--white); background:#09000c; font-family:Manrope, sans-serif; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:0; z-index:-3; background:linear-gradient(100deg,rgba(64,0,92,.88),rgba(10,0,17,.9)),url("fondo.gif") center/cover no-repeat; }
+    body::after { content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; background:radial-gradient(circle at 26% 28%,rgba(174,0,255,.23),transparent 36%),radial-gradient(circle at 76% 67%,rgba(255,41,139,.1),transparent 32%),linear-gradient(to bottom,rgba(12,0,17,.1),rgba(5,0,8,.72)); }
+    .noise { position:fixed; inset:0; z-index:-1; opacity:.035; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
+    nav { position:fixed; top:0; left:0; width:100%; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:0 6vw; height:72px; background:rgba(14,0,20,.25); border-bottom:1px solid rgba(255,255,255,.06); backdrop-filter:blur(16px); }
+    .brand { color:var(--white); text-decoration:none; font-family:"Cormorant Garamond",serif; font-size:1.3rem; letter-spacing:.05em; }
+    .nav-links { display:flex; gap:clamp(18px,3vw,44px); list-style:none; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:.78rem; letter-spacing:.09em; transition:.25s ease; }
+    .nav-links a:hover,.nav-links a:focus-visible { color:#fff; text-shadow:0 0 18px var(--pink); outline:none; }
+    .hero { min-height:100svh; display:grid; place-items:center; position:relative; padding:110px 22px 80px; isolation:isolate; }
+    .hero-content { width:min(930px,100%); text-align:center; position:relative; z-index:2; animation:arrive 1.3s ease both; }
+    .eyebrow { margin-bottom:18px; color:#e8cde2; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; }
+    h1 { font-family:"Cormorant Garamond",serif; font-weight:500; font-size:clamp(4.3rem,11vw,8.8rem); line-height:.84; letter-spacing:-.04em; text-shadow:0 7px 45px rgba(237,73,174,.2); }
+    h1 em { display:block; color:var(--pink); font-weight:400; }
+    .intro { width:min(650px,100%); margin:32px auto 0; color:var(--muted); font-family:"Cormorant Garamond",serif; font-size:clamp(1.22rem,2.3vw,1.65rem); line-height:1.55; }
+    .heart-mark { display:inline-block; color:var(--rose); font-size:.75em; animation:beat 1.8s ease-in-out infinite; }
+    .music { margin:38px auto 0; border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:11px 18px; display:inline-flex; align-items:center; gap:10px; color:var(--white); background:rgba(255,255,255,.06); backdrop-filter:blur(10px); font:500 .74rem Manrope,sans-serif; letter-spacing:.1em; cursor:pointer; transition:.25s ease; }
+    .music:hover { background:rgba(255,120,186,.15); border-color:rgba(255,131,197,.55); transform:translateY(-2px); }
+    .music-icon { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,var(--pink),#b934ff); box-shadow:0 0 22px rgba(255,82,167,.32); }
+    .scroll-cue { position:absolute; bottom:27px; left:50%; transform:translateX(-50%); z-index:3; color:#d6bad0; font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; }
+    .scroll-cue::after { content:""; display:block; width:1px; height:34px; margin:10px auto 0; background:linear-gradient(var(--pink),transparent); animation:drop 1.8s ease-in-out infinite; }
+    .hearts { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+    .floating-heart { position:absolute; bottom:-12vh; color:var(--rose); opacity:0; filter:drop-shadow(0 0 10px rgba(255,46,142,.45)); animation:floatUp var(--duration) linear var(--delay) infinite; }
+    .chapter { min-height:90vh; display:grid; place-items:center; padding:110px 7vw; position:relative; z-index:2; background:linear-gradient(180deg,rgba(9,0,12,.25),rgba(9,0,12,.78)); border-top:1px solid rgba(255,255,255,.06); }
+    .chapter-inner { width:min(960px,100%); text-align:center; }
+    .chapter h2 { font-family:"Cormorant Garamond",serif; font-size:clamp(3rem,7vw,5.5rem); font-weight:400; margin-bottom:18px; }
+    .chapter p { width:min(620px,100%); margin:auto; color:var(--muted); font-family:"Cormorant Garamond",serif; font-size:clamp(1.2rem,2vw,1.5rem); line-height:1.7; }
+    .memory-grid { margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .memory { aspect-ratio:4/5; display:flex; align-items:flex-end; padding:22px; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:4px; background:linear-gradient(160deg,rgba(137,25,154,.23),rgba(20,0,30,.7)); box-shadow:0 18px 45px rgba(0,0,0,.18); }
+    .memory span { color:#ead4e6; font-family:"Cormorant Garamond",serif; font-size:1.25rem; }
+    footer { padding:50px 20px 70px; text-align:center; color:#baa1b5; font-family:"Cormorant Garamond",serif; font-size:1.2rem; background:#09000c; }
+    @keyframes arrive { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+    @keyframes beat { 50%{transform:scale(1.18)} }
+    @keyframes drop { 0%,100%{transform:scaleY(.35);transform-origin:top;opacity:.3} 50%{transform:scaleY(1);opacity:1} }
+    @keyframes floatUp { 0%{transform:translate3d(0,0,0) rotate(-8deg) scale(.8);opacity:0} 10%{opacity:var(--opacity)} 55%{transform:translate3d(var(--drift),-58vh,0) rotate(10deg) scale(1)} 100%{transform:translate3d(calc(var(--drift) * -.5),-120vh,0) rotate(-12deg) scale(.85);opacity:0} }
+    @media (max-width:700px) { nav{height:64px;padding:0 20px}.brand{font-size:1.1rem}.nav-links{gap:14px}.nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none}.nav-links a{font-size:.7rem}.hero{padding-top:95px}h1{font-size:clamp(4rem,22vw,6.2rem)}.intro{margin-top:26px}.memory-grid{grid-template-columns:1fr}.memory{aspect-ratio:16/10}.chapter{padding-inline:24px} }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.hero-content,.heart-mark,.scroll-cue::after,.floating-heart{animation:none}.floating-heart{display:none} }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+  <nav aria-label="Navegación principal">
+    <a class="brand" href="#inicio">Para Cin ♡</a>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#recuerdos">Recuerdos</a></li><li><a href="#razones">Razones</a></li>
+    </ul>
+  </nav>
+  <main>
+    <header class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">Un rinconcito solo nuestro</p>
+        <h1>Porque <em>sí <3 <span class="heart-mark">.</span></em></h1>
+        <p class="intro">No es nuestro aniversario, ni tu cumpleaños, ni una fecha especial. Simplemente tenía ganas de hacer algo para vos.</p><br> <br>
+
+
+        <p class="intro">Quiero amar sin pensar en que me haran, que vea el alma, y no los ojos ❤️</p><br> <br>
+
+<iframe src="https://open.spotify.com/embed/playlist/1ZIEUpX21NDrcJbA8lKVxK?si=5f6137bd88274234" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe><div style="position: absolute;width: 91%;bottom: 4px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.2;font-size: 0px;background: #fff;"><a href="https://spotembed.com/">Spotify player embed</a><script type="text/javascript" src="https://instaembedcode.com/in.js"></script></small></div><style>.boxes2{height:212px;width:316px;} #new img{max-width:none!important;background:none!important}</style></div>
+      </div><BR><BR>
+      <a class="scroll-cue" href="#nosotros">seguí bajando</a>
+    </header>
+    <section class="chapter" id="nosotros"><div class="chapter-inner"><p class="eyebrow">Tiempito juntos ⏳♾️</p><h2>Nosotros.</h2><p>Este espacio es para nuestra historia: la que empezó sin saber todo lo lindo que nos esperaba y que seguimos escribiendo todos los días.</p></div></section>
+    <section class="chapter" id="recuerdos"><div class="chapter-inner"><p class="eyebrow">momentos que guardo</p><h2>Nuestros recuerdos.</h2><p>Acá podés reemplazar estas tarjetas por fotos, fechas o pequeñas historias de ustedes.</p><div class="memory-grid"><article class="memory"><span>El día que empezó todo.</span></article><article class="memory"><span>Ese momento que siempre recordamos.</span></article><article class="memory"><span>Todo lo que todavía nos falta vivir.</span></article></div></div></section>
+    <section class="chapter" id="razones"><div class="chapter-inner"><p class="eyebrow">y al final entendí</p><h2>Vos eras el motivo.</h2><p>No necesitaba una fecha especial para recordarte lo importante que sos para mí. Te amo, Isa.</p></div></section>
+  </main>
+  <footer>Hecho con amor, porque sí. ♡</footer>
+
+</body>
+</html>
