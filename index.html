@@ -24,7 +24,18 @@
     .nav-links a { color:var(--muted); text-decoration:none; font-size:.78rem; letter-spacing:.09em; transition:.25s ease; }
     .nav-links a:hover,.nav-links a:focus-visible { color:#fff; text-shadow:0 0 18px var(--pink); outline:none; }
     .hero { min-height:100svh; display:grid; place-items:center; position:relative; padding:110px 22px 80px; isolation:isolate; }
-    .hero-content { width:min(930px,100%); text-align:center; position:relative; z-index:2; animation:arrive 1.3s ease both; }
+    .hero-content { width:min(650px,100%); text-align:center; position:relative; z-index:2; animation:arrive 1.3s ease both; }
+    .hero iframe { max-width:100%; border-radius:18px; box-shadow:0 24px 65px rgba(0,0,0,.35); }
+    .photo-rail { position:absolute; top:86px; bottom:34px; width:clamp(130px,14vw,180px); overflow:hidden; z-index:2; pointer-events:none; mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent); -webkit-mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent); }
+    .photo-rail--left { left:max(22px,calc(50% - 650px)); }
+    .photo-rail--right { right:max(22px,calc(50% - 650px)); }
+    .photo-track { display:flex; flex-direction:column; gap:18px; animation:photosUp 32s linear infinite; will-change:transform; }
+    .photo-rail--right .photo-track { animation-name:photosDown; animation-duration:36s; }
+    .photo-frame { flex:none; width:100%; aspect-ratio:4/5; padding:5px; border:1px solid rgba(255,131,197,.38); border-radius:16px; background:linear-gradient(145deg,rgba(255,131,197,.22),rgba(113,37,174,.16)); box-shadow:0 15px 38px rgba(0,0,0,.38),0 0 24px rgba(207,70,255,.09); transform:rotate(var(--tilt)); }
+    .photo-frame img { width:100%; height:100%; display:block; object-fit:cover; border-radius:11px; }
+    .mobile-photo-strip { display:none; width:calc(100% + 44px); margin:38px -22px 0; overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+    .mobile-photo-track { display:flex; width:max-content; gap:12px; animation:photosMobile 34s linear infinite; }
+    .mobile-photo-track .photo-frame { width:125px; }
     .eyebrow { margin-bottom:18px; color:#e8cde2; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; }
     h1 { font-family:"Cormorant Garamond",serif; font-weight:500; font-size:clamp(4.3rem,11vw,8.8rem); line-height:.84; letter-spacing:-.04em; text-shadow:0 7px 45px rgba(237,73,174,.2); }
     h1 em { display:block; color:var(--pink); font-weight:400; }
@@ -41,6 +52,18 @@
     .chapter-inner { width:min(960px,100%); text-align:center; }
     .chapter h2 { font-family:"Cormorant Garamond",serif; font-size:clamp(3rem,7vw,5.5rem); font-weight:400; margin-bottom:18px; }
     .chapter p { width:min(620px,100%); margin:auto; color:var(--muted); font-family:"Cormorant Garamond",serif; font-size:clamp(1.2rem,2vw,1.5rem); line-height:1.7; }
+    .counter-section { overflow:hidden; background:radial-gradient(circle at 50% 24%,rgba(151,47,255,.2),transparent 38%),linear-gradient(180deg,rgba(9,0,12,.45),rgba(17,0,27,.92)); }
+    .since-badge { width:max-content!important; max-width:100%; display:flex; align-items:center; gap:9px; margin:0 auto 22px!important; padding:10px 16px; border:1px solid rgba(255,131,197,.3); border-radius:999px; background:rgba(255,255,255,.07); color:#f5dcec!important; font:500 .7rem Manrope,sans-serif!important; letter-spacing:.18em; text-transform:uppercase; backdrop-filter:blur(10px); }
+    .counter-title { margin-bottom:8px!important; text-shadow:0 8px 36px rgba(210,70,255,.22); }
+    .counter-lead { font-size:1.2rem!important; }
+    .counter-grid { width:min(870px,100%); margin:42px auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .time-card { min-height:126px; display:grid; place-content:center; gap:8px; border:1px solid rgba(255,255,255,.13); border-radius:20px; background:linear-gradient(145deg,rgba(92,25,121,.42),rgba(27,5,39,.66)); box-shadow:0 18px 45px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.08); backdrop-filter:blur(14px); transition:transform .25s ease,border-color .25s ease; }
+    .time-card:hover { transform:translateY(-4px); border-color:rgba(255,131,197,.42); }
+    .time-card strong { font-family:Manrope,sans-serif; font-size:clamp(2.1rem,5vw,3.35rem); line-height:1; color:#fff; text-shadow:0 0 25px rgba(223,91,255,.28); font-variant-numeric:tabular-nums; }
+    .time-card span { color:#dcbfd9; font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; }
+    .counter-details { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
+    .counter-pill { padding:11px 17px; border:1px solid rgba(255,255,255,.13); border-radius:999px; background:rgba(255,255,255,.065); color:#ead5e7; font-size:.76rem; }
+    .counter-pill:first-child { background:linear-gradient(135deg,rgba(255,77,157,.36),rgba(128,44,211,.32)); border-color:rgba(255,131,197,.3); }
     .memory-grid { margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .memory { aspect-ratio:4/5; display:flex; align-items:flex-end; padding:22px; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:4px; background:linear-gradient(160deg,rgba(137,25,154,.23),rgba(20,0,30,.7)); box-shadow:0 18px 45px rgba(0,0,0,.18); }
     .memory span { color:#ead4e6; font-family:"Cormorant Garamond",serif; font-size:1.25rem; }
@@ -49,8 +72,12 @@
     @keyframes beat { 50%{transform:scale(1.18)} }
     @keyframes drop { 0%,100%{transform:scaleY(.35);transform-origin:top;opacity:.3} 50%{transform:scaleY(1);opacity:1} }
     @keyframes floatUp { 0%{transform:translate3d(0,0,0) rotate(-8deg) scale(.8);opacity:0} 10%{opacity:var(--opacity)} 55%{transform:translate3d(var(--drift),-58vh,0) rotate(10deg) scale(1)} 100%{transform:translate3d(calc(var(--drift) * -.5),-120vh,0) rotate(-12deg) scale(.85);opacity:0} }
-    @media (max-width:700px) { nav{height:64px;padding:0 20px}.brand{font-size:1.1rem}.nav-links{gap:14px}.nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none}.nav-links a{font-size:.7rem}.hero{padding-top:95px}h1{font-size:clamp(4rem,22vw,6.2rem)}.intro{margin-top:26px}.memory-grid{grid-template-columns:1fr}.memory{aspect-ratio:16/10}.chapter{padding-inline:24px} }
-    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.hero-content,.heart-mark,.scroll-cue::after,.floating-heart{animation:none}.floating-heart{display:none} }
+    @keyframes photosUp { to{transform:translateY(calc(-50% - 9px))} }
+    @keyframes photosDown { from{transform:translateY(calc(-50% - 9px))} to{transform:translateY(0)} }
+    @keyframes photosMobile { to{transform:translateX(calc(-50% - 6px))} }
+    @media (max-width:1100px) { .photo-rail{display:none}.mobile-photo-strip{display:block}.hero-content{width:min(680px,100%)} }
+    @media (max-width:700px) { nav{height:64px;padding:0 20px}.brand{font-size:1.1rem}.nav-links{gap:14px}.nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none}.nav-links a{font-size:.7rem}.hero{padding:95px 22px 72px}h1{font-size:clamp(4rem,22vw,6.2rem)}.intro{margin-top:26px}.memory-grid{grid-template-columns:1fr}.memory{aspect-ratio:16/10}.chapter{padding-inline:24px}.counter-grid{grid-template-columns:repeat(2,1fr);gap:12px}.time-card{min-height:108px;border-radius:16px}.since-badge{letter-spacing:.1em}.counter-details{align-items:stretch;flex-direction:column}.counter-pill{width:100%} }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.hero-content,.heart-mark,.scroll-cue::after,.floating-heart,.photo-track,.mobile-photo-track{animation:none}.floating-heart{display:none} }
   </style>
 </head>
 <body>
@@ -64,6 +91,18 @@
   </nav>
   <main>
     <header class="hero" id="inicio">
+      <div class="photo-rail photo-rail--left" aria-hidden="true">
+        <div class="photo-track">
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-01.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-03.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-1deg"><img src="foto-05.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-07.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-01.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-03.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-1deg"><img src="foto-05.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-07.jpg" alt="" /></figure>
+        </div>
+      </div>
       <div class="hero-content">
         <p class="eyebrow">Un rinconcito solo nuestro</p>
         <h1>Porque <em>sí <3 <span class="heart-mark">.</span></em></h1>
@@ -73,14 +112,95 @@
         <p class="intro">Quiero amar sin pensar en que me haran, que vea el alma, y no los ojos ❤️</p><br> <br>
 
 <iframe src="https://open.spotify.com/embed/playlist/1ZIEUpX21NDrcJbA8lKVxK?si=5f6137bd88274234" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe><div style="position: absolute;width: 91%;bottom: 4px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.2;font-size: 0px;background: #fff;"><a href="https://spotembed.com/">Spotify player embed</a><script type="text/javascript" src="https://instaembedcode.com/in.js"></script></small></div><style>.boxes2{height:212px;width:316px;} #new img{max-width:none!important;background:none!important}</style></div>
+        <div class="mobile-photo-strip" aria-hidden="true"><div class="mobile-photo-track">
+          <figure class="photo-frame"><img src="foto-01.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-02.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-03.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-04.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-05.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-06.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-07.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-08.jpg" alt="" /></figure>
+          <figure class="photo-frame"><img src="foto-01.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-02.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-03.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-04.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-05.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-06.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-07.jpg" alt="" /></figure><figure class="photo-frame"><img src="foto-08.jpg" alt="" /></figure>
+        </div></div>
       </div><BR><BR>
+      <div class="photo-rail photo-rail--right" aria-hidden="true">
+        <div class="photo-track">
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-02.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-04.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:1deg"><img src="foto-06.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-08.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:2deg"><img src="foto-02.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-04.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:1deg"><img src="foto-06.jpg" alt="" /></figure>
+          <figure class="photo-frame" style="--tilt:-2deg"><img src="foto-08.jpg" alt="" /></figure>
+        </div>
+      </div>
       <a class="scroll-cue" href="#nosotros">seguí bajando</a>
     </header>
-    <section class="chapter" id="nosotros"><div class="chapter-inner"><p class="eyebrow">Tiempito juntos ⏳♾️</p><h2>Nosotros.</h2><p>Este espacio es para nuestra historia: la que empezó sin saber todo lo lindo que nos esperaba y que seguimos escribiendo todos los días.</p></div></section>
+    <section class="chapter counter-section" id="nosotros">
+      <div class="chapter-inner">
+        <p class="since-badge">💞 Desde el 2 de agosto de 2026</p>
+        <h2 class="counter-title">Nuestro tiempito juntos ❤️⏳♾️.</h2>
+        <p class="counter-lead">Cada segundo con vos es hermoso</p><br><br>
+
+        <div class="counter-grid" aria-label="Tiempo que llevamos juntos">
+          <div class="time-card"><strong id="years">00</strong><span>Años</span></div>
+          <div class="time-card"><strong id="months">00</strong><span>Meses</span></div>
+          <div class="time-card"><strong id="days">00</strong><span>Días</span></div>
+          <div class="time-card"><strong id="hours">00</strong><span>Horas</span></div>
+          <div class="time-card"><strong id="minutes">00</strong><span>Minutos</span></div>
+          <div class="time-card"><strong id="seconds">00</strong><span>Segundos</span></div>
+        </div>
+        <div class="counter-details">
+          <span class="counter-pill">🗓️ <strong id="totalDays">0</strong> días juntos</span>
+          <span class="counter-pill">✨ <strong id="nextAnniversary">0</strong> días para nuestro próximo aniversario</span>
+        </div>
+      </div>
+    </section>
     <section class="chapter" id="recuerdos"><div class="chapter-inner"><p class="eyebrow">momentos que guardo</p><h2>Nuestros recuerdos.</h2><p>Acá podés reemplazar estas tarjetas por fotos, fechas o pequeñas historias de ustedes.</p><div class="memory-grid"><article class="memory"><span>El día que empezó todo.</span></article><article class="memory"><span>Ese momento que siempre recordamos.</span></article><article class="memory"><span>Todo lo que todavía nos falta vivir.</span></article></div></div></section>
     <section class="chapter" id="razones"><div class="chapter-inner"><p class="eyebrow">y al final entendí</p><h2>Vos eras el motivo.</h2><p>No necesitaba una fecha especial para recordarte lo importante que sos para mí. Te amo, Isa.</p></div></section>
   </main>
   <footer>Hecho con amor, porque sí. ♡</footer>
+  <script>
+    // Cambiá solamente esta fecha si necesitás ajustar el inicio de la relación.
+    const relationshipStart = new Date('2026-08-02T00:00:00-03:00');
+    const ids = ['years','months','days','hours','minutes','seconds'];
+    const pad = value => String(value).padStart(2,'0');
 
+    function updateTogetherTime() {
+      const now = new Date();
+      if (now < relationshipStart) return;
+
+      let anchor = new Date(relationshipStart);
+      let years = now.getFullYear() - anchor.getFullYear();
+      const yearAnchor = new Date(anchor);
+      yearAnchor.setFullYear(anchor.getFullYear() + years);
+      if (yearAnchor > now) years--;
+      anchor.setFullYear(anchor.getFullYear() + years);
+
+      let months = 0;
+      while (months < 11) {
+        const nextMonth = new Date(anchor);
+        nextMonth.setMonth(nextMonth.getMonth() + 1);
+        if (nextMonth > now) break;
+        anchor = nextMonth;
+        months++;
+      }
+
+      let remaining = now - anchor;
+      const dayMs = 86400000;
+      const hourMs = 3600000;
+      const minuteMs = 60000;
+      const days = Math.floor(remaining / dayMs); remaining %= dayMs;
+      const hours = Math.floor(remaining / hourMs); remaining %= hourMs;
+      const minutes = Math.floor(remaining / minuteMs);
+      const seconds = Math.floor((remaining % minuteMs) / 1000);
+      [years,months,days,hours,minutes,seconds].forEach((value,index) => {
+        document.getElementById(ids[index]).textContent = pad(value);
+      });
+
+      document.getElementById('totalDays').textContent = Math.floor((now - relationshipStart) / dayMs);
+      let next = new Date(now.getFullYear(), relationshipStart.getMonth(), relationshipStart.getDate());
+      if (next <= now) next.setFullYear(next.getFullYear() + 1);
+      document.getElementById('nextAnniversary').textContent = Math.ceil((next - now) / dayMs);
+    }
+
+    updateTogetherTime();
+    setInterval(updateTogetherTime, 1000);
+  </script>
 </body>
 </html>
