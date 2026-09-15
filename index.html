@@ -64,6 +64,32 @@
     .counter-details { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
     .counter-pill { padding:11px 17px; border:1px solid rgba(255,255,255,.13); border-radius:999px; background:rgba(255,255,255,.065); color:#ead5e7; font-size:.76rem; }
     .counter-pill:first-child { background:linear-gradient(135deg,rgba(255,77,157,.36),rgba(128,44,211,.32)); border-color:rgba(255,131,197,.3); }
+    .wheel-section { overflow:hidden; background:radial-gradient(circle at 50% 43%,rgba(195,62,255,.2),transparent 35%),linear-gradient(180deg,rgba(17,0,27,.92),rgba(8,0,13,.88)); }
+    .wheel-wrap { position:relative; width:min(430px,88vw); aspect-ratio:1; margin:40px auto 28px; filter:drop-shadow(0 28px 34px rgba(0,0,0,.42)); }
+    .wheel-pointer { position:absolute; z-index:5; top:-12px; left:50%; width:0; height:0; transform:translateX(-50%); border-left:18px solid transparent; border-right:18px solid transparent; border-top:38px solid #ff92d0; filter:drop-shadow(0 4px 7px rgba(0,0,0,.45)); }
+    .wheel { position:absolute; inset:0; border:12px solid #1b071f; border-radius:50%; overflow:hidden; background:conic-gradient(from -30deg,#5f167d 0 60deg,#8f27ae 60deg 120deg,#bd42c7 120deg 180deg,#6e329d 180deg 240deg,#d052b8 240deg 300deg,#762493 300deg 360deg); box-shadow:inset 0 0 0 5px rgba(255,255,255,.18),inset 0 0 45px rgba(12,0,18,.28),0 0 0 5px rgba(255,131,197,.16); transition:transform 4.2s cubic-bezier(.12,.72,.08,1); }
+    .wheel::after { content:"♡"; position:absolute; z-index:3; left:50%; top:50%; width:68px; height:68px; display:grid; place-items:center; transform:translate(-50%,-50%); border:5px solid #fff; border-radius:50%; color:#ff83c5; background:#17051d; font-size:1.8rem; box-shadow:0 4px 20px rgba(0,0,0,.45); }
+    .wheel-line { position:absolute; z-index:1; inset:0; transform:rotate(calc(var(--i) * 60deg + 30deg)); }
+    .wheel-line::before { content:""; position:absolute; left:50%; top:0; width:2px; height:50%; background:rgba(255,255,255,.72); transform:translateX(-50%); }
+    .wheel-option { position:absolute; z-index:2; inset:0; padding-top:48px; text-align:center; transform:rotate(calc(var(--i) * 60deg)); }
+    .wheel-option span { display:inline-block; width:120px; color:#fff; font:700 clamp(.66rem,1.5vw,.82rem)/1.25 Manrope,sans-serif; text-shadow:0 2px 7px rgba(0,0,0,.48); transform:rotate(calc(var(--i) * -60deg)); }
+    .spin-button { min-width:190px; padding:14px 25px; border:1px solid rgba(255,131,197,.55); border-radius:999px; color:#fff; background:linear-gradient(135deg,#9b2bc0,#5b187b); box-shadow:0 12px 30px rgba(92,20,126,.38),inset 0 1px rgba(255,255,255,.18); font:600 .9rem Manrope,sans-serif; cursor:pointer; transition:.25s ease; }
+    .spin-button:hover:not(:disabled) { transform:translateY(-3px); box-shadow:0 16px 34px rgba(170,42,210,.38); }
+    .spin-button:disabled { opacity:.65; cursor:wait; }
+    .wheel-result { min-height:34px; margin-top:22px!important; color:#ffd8f0!important; font-size:1.35rem!important; }
+    .result-modal { position:fixed; inset:0; z-index:200; display:grid; place-items:center; padding:22px; background:rgba(5,0,9,.76); backdrop-filter:blur(12px); opacity:0; visibility:hidden; transition:opacity .3s ease,visibility .3s ease; }
+    .result-modal.is-open { opacity:1; visibility:visible; }
+    .result-card { position:relative; width:min(440px,100%); padding:42px 30px 32px; text-align:center; border:1px solid rgba(255,131,197,.38); border-radius:26px; background:radial-gradient(circle at 50% 0,rgba(211,72,255,.25),transparent 48%),linear-gradient(145deg,#2d0b3c,#120519); box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 45px rgba(188,51,231,.16); transform:translateY(18px) scale(.94); transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+    .result-modal.is-open .result-card { transform:none; }
+    .result-heart { width:68px; height:68px; display:grid; place-items:center; margin:0 auto 20px; border-radius:50%; color:#fff; background:linear-gradient(135deg,#ff65b3,#8c30c0); box-shadow:0 10px 28px rgba(255,71,166,.28); font-size:2rem; animation:beat 1.8s ease-in-out infinite; }
+    .result-card .eyebrow { margin-bottom:10px; }
+    .result-card h3 { color:#fff; font-family:"Cormorant Garamond",serif; font-size:clamp(2rem,7vw,3rem); font-weight:500; line-height:1.05; }
+    .result-card p.result-plan { margin:17px auto 26px; color:#ffccea; font-family:"Cormorant Garamond",serif; font-size:1.55rem; line-height:1.25; }
+    .modal-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; }
+    .modal-button { padding:12px 18px; border:1px solid rgba(255,255,255,.18); border-radius:999px; color:#fff; background:rgba(255,255,255,.07); font:600 .78rem Manrope,sans-serif; cursor:pointer; transition:.2s ease; }
+    .modal-button:hover { transform:translateY(-2px); background:rgba(255,255,255,.13); }
+    .modal-button.primary { border-color:rgba(255,131,197,.45); background:linear-gradient(135deg,#a72bc8,#641985); }
+    .modal-close { position:absolute; top:15px; right:17px; width:34px; height:34px; border:0; border-radius:50%; color:#ddc4d9; background:rgba(255,255,255,.06); font-size:1.15rem; cursor:pointer; }
     .memory-grid { margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .memory { aspect-ratio:4/5; display:flex; align-items:flex-end; padding:22px; text-align:left; border:1px solid rgba(255,255,255,.1); border-radius:4px; background:linear-gradient(160deg,rgba(137,25,154,.23),rgba(20,0,30,.7)); box-shadow:0 18px 45px rgba(0,0,0,.18); }
     .memory span { color:#ead4e6; font-family:"Cormorant Garamond",serif; font-size:1.25rem; }
@@ -86,7 +112,7 @@
   <nav aria-label="Navegación principal">
     <a class="brand" href="#inicio">Para Cin ♡</a>
     <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#recuerdos">Recuerdos</a></li><li><a href="#razones">Razones</a></li>
+      <li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#ruleta">Ruleta</a></li><li><a href="#recuerdos">Recuerdos</a></li><li><a href="#razones">Razones</a></li>
     </ul>
   </nav>
   <main>
@@ -106,7 +132,7 @@
       <div class="hero-content">
         <p class="eyebrow">Un rinconcito solo nuestro</p>
         <h1>Porque <em>sí <3 <span class="heart-mark">.</span></em></h1>
-        <p class="intro">No es nuestro aniversario, ni tu cumpleaños, ni una fecha especial. Simplemente tenía ganas de hacer algo para vos.</p><br> <br>
+        <p class="intro">No es nuestro aniversario, ni tu cumpleaños, ni una fecha especial. Simplemente tenía ganas de hacer algo para vos.</p>
 
 
         <p class="intro">Quiero amar sin pensar en que me haran, que vea el alma, y no los ojos ❤️</p><br> <br>
@@ -135,7 +161,7 @@
       <div class="chapter-inner">
         <p class="since-badge">💞 Desde el 2 de agosto de 2026</p>
         <h2 class="counter-title">Nuestro tiempito juntos ❤️⏳♾️.</h2>
-        <p class="counter-lead">Cada segundo con vos es hermoso</p><br><br>
+        <p class="counter-title">Cada segundo con vos es hermoso</p><br><br>
 
         <div class="counter-grid" aria-label="Tiempo que llevamos juntos">
           <div class="time-card"><strong id="years">00</strong><span>Años</span></div>
@@ -151,9 +177,41 @@
         </div>
       </div>
     </section>
+    <section class="chapter wheel-section" id="ruleta">
+      <div class="chapter-inner">
+        <p>Seis planes, una sola misión: pasarla lindo juntos.</p>
+        <div class="wheel-wrap">
+          <div class="wheel-pointer" aria-hidden="true"></div>
+          <div class="wheel" id="dateWheel" aria-label="Ruleta de planes">
+            <i class="wheel-line" style="--i:0"></i><i class="wheel-line" style="--i:1"></i><i class="wheel-line" style="--i:2"></i><i class="wheel-line" style="--i:3"></i><i class="wheel-line" style="--i:4"></i><i class="wheel-line" style="--i:5"></i>
+            <div class="wheel-option" style="--i:0"><span>Cocinar juntos</span></div>
+            <div class="wheel-option" style="--i:1"><span>Cita romántica</span></div>
+            <div class="wheel-option" style="--i:2"><span>Escapada de finde</span></div>
+            <div class="wheel-option" style="--i:3"><span>Noche de películas</span></div>
+            <div class="wheel-option" style="--i:4"><span>Aventura sorpresa</span></div>
+            <div class="wheel-option" style="--i:5"><span>Bailar bajo las estrellas</span></div>
+          </div>
+        </div>
+        <button class="spin-button" id="spinButton" type="button">Girar la ruleta ✨</button>
+        <p class="wheel-result" id="wheelResult" aria-live="polite">¿Qué nos tocará?</p>
+      </div>
+    </section>
     <section class="chapter" id="recuerdos"><div class="chapter-inner"><p class="eyebrow">momentos que guardo</p><h2>Nuestros recuerdos.</h2><p>Acá podés reemplazar estas tarjetas por fotos, fechas o pequeñas historias de ustedes.</p><div class="memory-grid"><article class="memory"><span>El día que empezó todo.</span></article><article class="memory"><span>Ese momento que siempre recordamos.</span></article><article class="memory"><span>Todo lo que todavía nos falta vivir.</span></article></div></div></section>
     <section class="chapter" id="razones"><div class="chapter-inner"><p class="eyebrow">y al final entendí</p><h2>Vos eras el motivo.</h2><p>No necesitaba una fecha especial para recordarte lo importante que sos para mí. Te amo, Isa.</p></div></section>
   </main>
+  <div class="result-modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="resultTitle" aria-hidden="true">
+    <div class="result-card">
+      <button class="modal-close" id="closeResult" type="button" aria-label="Cerrar">×</button>
+      <div class="result-heart" aria-hidden="true">♡</div>
+      <p class="eyebrow">la suerte decidió</p>
+      <h3 id="resultTitle">Hoy nos toca...</h3>
+      <p class="result-plan" id="resultPlan"></p>
+      <div class="modal-actions">
+        <button class="modal-button" id="acceptResult" type="button">Me encanta 💜</button>
+        <button class="modal-button primary" id="spinAgain" type="button">Volver a girar ✨</button>
+      </div>
+    </div>
+  </div>
   <footer>Hecho con amor, porque sí. ♡</footer>
   <script>
     // Cambiá solamente esta fecha si necesitás ajustar el inicio de la relación.
@@ -201,6 +259,50 @@
 
     updateTogetherTime();
     setInterval(updateTogetherTime, 1000);
+
+    const datePlans = ['Cocinar juntos','Cita romántica','Escapada de finde','Noche de películas','Aventura sorpresa','Bailar bajo las estrellas'];
+    const dateWheel = document.getElementById('dateWheel');
+    const spinButton = document.getElementById('spinButton');
+    const wheelResult = document.getElementById('wheelResult');
+    const resultModal = document.getElementById('resultModal');
+    const resultPlan = document.getElementById('resultPlan');
+    const closeResult = document.getElementById('closeResult');
+    const acceptResult = document.getElementById('acceptResult');
+    const spinAgain = document.getElementById('spinAgain');
+    let wheelRotation = 0;
+
+    function closeResultModal() {
+      resultModal.classList.remove('is-open');
+      resultModal.setAttribute('aria-hidden','true');
+    }
+
+    function spinTheWheel() {
+      closeResultModal();
+      const selected = Math.floor(Math.random() * datePlans.length);
+      const target = (360 - selected * 60) % 360;
+      const current = wheelRotation % 360;
+      const adjustment = (target - current + 360) % 360;
+      wheelRotation += 1800 + adjustment;
+      dateWheel.style.transform = `rotate(${wheelRotation}deg)`;
+      spinButton.disabled = true;
+      wheelResult.textContent = 'Girando... 💫';
+      window.setTimeout(() => {
+        wheelResult.textContent = `Hoy nos toca: ${datePlans[selected]} 💜`;
+        resultPlan.textContent = datePlans[selected] + ' 💜';
+        resultModal.classList.add('is-open');
+        resultModal.setAttribute('aria-hidden','false');
+        acceptResult.focus();
+        spinButton.disabled = false;
+        spinButton.textContent = 'Volver a girar ✨';
+      }, 4250);
+    }
+
+    spinButton.addEventListener('click', spinTheWheel);
+    spinAgain.addEventListener('click', spinTheWheel);
+    closeResult.addEventListener('click', closeResultModal);
+    acceptResult.addEventListener('click', closeResultModal);
+    resultModal.addEventListener('click', event => { if (event.target === resultModal) closeResultModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeResultModal(); });
   </script>
 </body>
 </html>
